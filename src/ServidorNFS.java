@@ -44,16 +44,22 @@ public class ServidorNFS {
                         HOME = HOME + sep + relativePath;
                     }
 
-                    Set<String> archives = readdir(HOME);
 
-                    String formattedArch = "\nExibindo conteudo do diretorio: "+HOME+" para o cliente\n\n";
+                    Path file = Paths.get(HOME);
+                    if (Files.exists(file)) {
+                        Set<String> archives = readdir(HOME);
 
-                    for (String archive : archives) {
-                        formattedArch += archive + "\n";
+                        String formattedArch = "\nExibindo conteudo do diretorio: "+HOME+" para o cliente\n\n";
+
+                        for (String archive : archives) {
+                            formattedArch += archive + "\n";
+                        }
+
+                        if (archives.isEmpty()) dos.writeUTF("Pasta Vazia");
+                        else{ dos.writeUTF(formattedArch); }
+                    } else {
+                        dos.writeUTF("Nao encontrado");
                     }
-
-                    if (archives.isEmpty()) dos.writeUTF("Pasta Vazia");
-                    else{ dos.writeUTF(formattedArch); }
 
                 } else if (comando.equals("rename")){
 

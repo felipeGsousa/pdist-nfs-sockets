@@ -9,6 +9,7 @@ public class ClienteNFS {
     public static void main(String[] args) throws IOException {
         System.out.println("-------------- Cliente NFS --------------");
         System.out.println("\nComandos: \n --> readdir \n --> rename \n --> remove \n --> create\n");
+        System.out.println("\nUtilize - (Hifen) antes dos nomes de diretorios apos cada comando.\nEx.: create -NovoTxt.txt\n    rename -Arquivo.txt -NovoArquivo.txt\n");
 
         Socket socket = new Socket("127.0.0.1", 7001);
 
