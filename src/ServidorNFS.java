@@ -31,7 +31,7 @@ public class ServidorNFS {
         String missingCMD = "Digite algum dos comandos a seguir: readdir, rename, remove, create";
 
         while (true) {
-            System.out.println("Cliente: " + socket.getInetAddress());
+            System.out.println("Aguardando ação do cliente...");
 
             String HOME = System.getProperty("user.home");
             String mensagem = dis.readUTF();
